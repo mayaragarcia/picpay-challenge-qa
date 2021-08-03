@@ -52,3 +52,30 @@ describe('Save New User',() => {
         },1,true);
     });
 });
+
+describe('Update User Name', () => {
+    it('PUT Update User Name', () => {
+        cy.request({
+            method: "PUT",
+            url: `/users/${userTestData.id}`,
+            auth: {"bearer": token},
+            body: alterUserTestData
+        })
+        .then(response => {
+            expect(response.status).equal(200);
+            cy.log(JSON.stringify(response.body.data));
+        });
+    });
+    it('GET Check Name Update', () => {
+        cy.request({
+            method: "GET",
+            url: `/users/${userTestData.id}`,
+            auth: {"bearer": token}
+        })
+        .then(response =>{
+            expect(response.status).equal(200);
+            expect(response.body.data.name).to.equal(alterUserTestData.name);
+            cy.log(JSON.stringify(response.body.data));
+        });
+    });
+});
