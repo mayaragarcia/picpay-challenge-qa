@@ -1,0 +1,22 @@
+{
+  "name": "picpay-challenge-qa",
+  "version": "1.0.0",
+  "description": "PicPay Challenge QA",
+  "main": "index.js",
+  "scripts": {
+    "cypress:open": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayaragarcia/picpay-challenge-qa.git"
+  },
+  "author": "Mayara Garcia Ramos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mayaragarcia/picpay-challenge-qa/issues"
+  },
+  "homepage": "https://github.com/mayaragarcia/picpay-challenge-qa#readme",
+  "devDependencies": {
+    "cypress": "8.1.0"
+  }
+}
