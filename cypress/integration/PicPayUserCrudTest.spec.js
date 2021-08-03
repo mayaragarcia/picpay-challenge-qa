@@ -66,7 +66,7 @@ describe('Update User Name', () => {
             cy.log(JSON.stringify(response.body.data));
         });
     });
-    it('GET Check Name Update', () => {
+    it('GET Check Name Updated', () => {
         cy.request({
             method: "GET",
             url: `/users/${userTestData.id}`,
@@ -77,5 +77,25 @@ describe('Update User Name', () => {
             expect(response.body.data.name).to.equal(alterUserTestData.name);
             cy.log(JSON.stringify(response.body.data));
         });
+    });
+});
+
+describe('Delete User',() => {
+    it('DELETE Delete User', () => {
+        cy.request({
+            method: "DELETE",
+            url: `/users/${userTestData.id}`,
+            auth: {"bearer": token}
+        })
+        .then((response) => {
+            expect(response.status).equal(200);
+        });
+    });
+    it('GET Check User Deleted', () => {
+        checkNumberOfPages();
+        findUserInAllPages(response => {
+            const statusOk = response.status ===200;
+            return statusOk && response.body.data.some(user => { return user.id === userTestData.id})
+        },1,false);
     });
 });

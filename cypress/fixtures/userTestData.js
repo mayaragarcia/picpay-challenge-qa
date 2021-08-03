@@ -1,6 +1,6 @@
 const userTestData = {
-    "name":     "Mayara Test",
-    "email":    "mayaratest@email.com",
+    "name":     "Mayara Test User",
+    "email":    "mayaratestuser@email.com",
     "gender":   "female",
     "status":   "active"
 };
